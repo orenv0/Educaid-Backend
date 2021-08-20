@@ -1,0 +1,43 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.0'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'Educaid'
+version = '0.1.0'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.4.8'
+	
+	compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.4.0'
+	
+	// https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api
+     compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+	
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.5.RELEASE'
+	
+    runtimeOnly 'com.h2database:h2'
+	
+	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+	
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.3.5.RELEASE'
+	
+	
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
